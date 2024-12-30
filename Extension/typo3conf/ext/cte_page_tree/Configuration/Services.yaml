@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Internal\CustomCommand\:
+    resource: '../Classes/*'
+
+  Internal\CustomCommand\Command\SiteStateCommand:
+    tags:
+      - name: console.command
+        command: 'cte:start'
+        description: 'Create page tree with recursive CTE'
