@@ -42,10 +42,10 @@ final class SiteStateCommand extends Command
 
         // ____Performance test part____
         // Performance testing parameters
-        $times=10;
-        $pageRepo=true;
-        $pageTreeView=true;
-        $rCte=true;
+        $times=1;           // Number of executions (to get a more consitent value)
+        $pageRepo=true;     // Set to false, to disable performance test for PageRepository
+        $pageTreeView=true; // Set to false, to disable performance test for PageTreeView
+        $rCte=true;         // Set to false, to disable performance test for recursive cte
 
         $this->performanceTests($times, $pageRepo, $pageTreeView, $rCte); // Call of the performance tests
 
