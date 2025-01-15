@@ -55,9 +55,9 @@ final class StateService
         $parameters->getRestrictions()->removeAll()->add(\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(DeletedRestriction::class));
 
 
-        $fields_selective = ['uid', 'crdate', 'title']; // DB fields in Output array
+        $fields_selective = ['uid', 'title'];           // DB fields in Output array
         $metaFields = true;                             // Include/exclude metafields
-        $workspace = 0;                                 // Workspace to get the page tree for (0 = Live workspace)
+        $workspace = 2;                                 // Workspace to get the page tree for (0 = Live workspace)
         $output = true;                                 // Print details on the terminal
 
         //$pageId can't be used right now, because you don't know weather the given page is viewable for the given workspace
@@ -106,10 +106,10 @@ final class StateService
             echo "\n\nSQL-Statement:\n--------------\n $queryString\n";
 
 
-            echo "\n\nOUTPUT:\n-------\n";
-            foreach ($rcteOutput as $page) {
-                echo $page['crdate'] . str_repeat("  ",$page['__CTE_LEVEL__'] -1) . ' [' . $page['uid'] . '] ' . $page['title'] . "\n";
-            }
+            echo "\n\nPage Tree:\n----------\n";
+            //foreach ($rcteOutput as $page) {
+            //    echo str_repeat("  ",$page['__CTE_LEVEL__'] -1) . ' [' . $page['uid'] . '] ' . $page['title'] . "\n";
+            //}
             //var_dump($rcteOutput);
 
 
